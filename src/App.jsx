@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <MyNav />
-      <Container>
+      <Container fluid>
         <Welcome />
         {/* <AllMyBooks /> */}
         <BookList books={fantasy} />

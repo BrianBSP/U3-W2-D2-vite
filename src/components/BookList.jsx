@@ -10,6 +10,11 @@ class BookList extends Component {
 
   state = {
     searchQuery: "",
+    selectedAsin: "",
+  };
+
+  changeAsin = (newAsin) => {
+    this.setState({ selectedAsin: newAsin });
   };
 
   render() {
@@ -28,7 +33,7 @@ class BookList extends Component {
           </Col>
         </Row>
         <Row>
-          <Col xs={12} md={6}>
+          <Col xs={12} md={8}>
             <Row className="g-2 mt-3">
               {this.props.books
                 .filter((book) => {
@@ -36,15 +41,15 @@ class BookList extends Component {
                 })
                 .map((book) => {
                   return (
-                    <Col xs={12} md={4} key={book.asin}>
-                      <SingleBook book={book} />
+                    <Col xs={12} md={3} key={book.asin}>
+                      <SingleBook book={book} changeAsin={this.changeAsin} />
                     </Col>
                   );
                 })}
             </Row>
           </Col>
-          <Col xs={12} md={6}>
-            <CommentArea />
+          <Col xs={12} md={4}>
+            <CommentArea asin={this.state.selectedAsin} />
           </Col>
         </Row>
       </Container>

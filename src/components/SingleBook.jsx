@@ -15,7 +15,10 @@ class SingleBook extends Component {
         <Card.Img
           variant="top"
           src={this.props.book.img}
-          onClick={() => this.setState({ selected: !this.state.selected })}
+          onClick={() => {
+            this.props.changeAsin(this.props.book.asin);
+            this.setState({ selected: !this.state.selected });
+          }}
         />
         <Card.Body>
           <Card.Title>{this.props.book.title}</Card.Title>
