@@ -2,22 +2,22 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Badge from "react-bootstrap/Badge";
 import { Component } from "react";
-import CommentArea from "./CommentArea";
+//import CommentArea from "./CommentArea";
 
 class SingleBook extends Component {
-  state = {
-    selected: false,
-  };
+  //state = {
+  //selected: false,
+  //};
 
   render() {
     return (
-      <Card style={{ border: this.state.selected ? "2px solid red" : "2px solid grey" }}>
+      <Card style={{ border: this.props.book.asin === this.props.selectedAsin ? "2px solid red" : "2px solid grey" }}>
         <Card.Img
           variant="top"
           src={this.props.book.img}
           onClick={() => {
             this.props.changeAsin(this.props.book.asin);
-            this.setState({ selected: !this.state.selected });
+            /* this.setState({ selected: !this.state.selected }) */
           }}
         />
         <Card.Body>
@@ -26,7 +26,7 @@ class SingleBook extends Component {
           <Badge bg="dark">€ {this.props.book.price}</Badge>
           <Button variant="primary">Buy</Button>
 
-          {this.state.selected && <CommentArea asin={this.props.book.asin} />}
+          {/* {this.state.selected && <CommentArea asin={this.props.book.asin} />} */}
         </Card.Body>
       </Card>
     );

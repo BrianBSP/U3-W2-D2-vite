@@ -42,7 +42,7 @@ class BookList extends Component {
                 .map((book) => {
                   return (
                     <Col xs={12} md={3} key={book.asin}>
-                      <SingleBook book={book} changeAsin={this.changeAsin} />
+                      <SingleBook book={book} changeAsin={this.changeAsin} selectedAsin={this.state.selectedAsin} />
                     </Col>
                   );
                 })}
